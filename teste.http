@@ -1,0 +1,188 @@
+
+## 2775.19215 -> 4813.524743439869
+POST http://localhost:5000/calculaseguro HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+
+{
+    "age": 23, 
+    "sex": "male", 
+    "bmi": 17.385, 
+    "children": 1, 
+    "smoker": "no", 
+    "region": "northwest"
+}
+
+###  12268.63225 -> 14021.409094021095
+POST http://localhost:5000/calculaseguro HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+
+{
+   "age": 55, 
+   "sex": "female", 
+   "bmi": 32.775, 
+   "children": 2, 
+   "smoker": "no", 
+   "region": "northwest"
+}
+
+###  14451.83515 -> 14267.944340439211
+POST http://localhost:5000/calculaseguro HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+
+{
+   "age": 63, 
+   "sex": "female", 
+   "bmi": 23.085, 
+   "children": 0, 
+   "smoker": "no", 
+   "region": "northeast"
+}
+
+###  16577.7795 -> 17819.366629750122
+POST http://localhost:5000/calculaseguro HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+
+{
+   "age": 27, 
+   "sex": "female", 
+   "bmi": 24.75, 
+   "children": 0, 
+   "smoker": "yes", 
+   "region": "southeast"
+}
+
+###### Masculino
+### 100% novo - Pouca idade, masculino com alto BMI e fumante
+###  ??? -> 38636.23652891908
+### Retornou um valor alto, conforme esperado
+POST http://localhost:5000/calculaseguro HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+
+{
+   "age": 20, 
+   "sex": "male", 
+   "bmi": 40.75, 
+   "children": 0, 
+   "smoker": "yes", 
+   "region": "southeast"
+}
+
+### 100% novo - Maior idade, masculino com alto BMI e fumante
+###  ??? -> 47295.62362830915
+### Retornou um valor ainda mais alto que o anterior, devido a maior idade,
+### conforme esperado
+POST http://localhost:5000/calculaseguro HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+
+{
+   "age": 60, 
+   "sex": "male", 
+   "bmi": 40.75, 
+   "children": 0, 
+   "smoker": "yes", 
+   "region": "southeast"
+}
+
+### 100% novo - Pouca idade, masculino com baixo BMI e fumante
+###  ??? -> 15846.017675903875
+POST http://localhost:5000/calculaseguro HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+
+{
+   "age": 16, 
+   "sex": "male", 
+   "bmi": 15.00, 
+   "children": 0, 
+   "smoker": "yes", 
+   "region": "southeast"
+}
+
+### 100% novo - Igual ao anterior, porém não fumante
+###  ??? -> 2175.065061234213
+### Redução ainda maior do valor conforme esperado
+POST http://localhost:5000/calculaseguro HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+
+{
+   "age": 16, 
+   "sex": "male", 
+   "bmi": 15.00, 
+   "children": 0, 
+   "smoker": "no", 
+   "region": "southeast"
+}
+
+###### Feminino 
+### 100% novo - Pouca idade, feminino com alto BMI e fumante
+###  ??? -> 38655.59727677879 (Masc = 38636.23652891908)
+### Retornou um valor alto, conforme esperado
+POST http://localhost:5000/calculaseguro HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+
+{
+   "age": 20, 
+   "sex": "female", 
+   "bmi": 40.75, 
+   "children": 0, 
+   "smoker": "yes", 
+   "region": "southeast"
+}
+
+### 100% novo - Maior idade, feminino com alto BMI e fumante
+###  ??? -> 47234.923303438496 (Masc = 47295.62362830915)
+### Retornou um valor ainda mais alto que o anterior, devido a maior idade,
+### conforme esperado
+POST http://localhost:5000/calculaseguro HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+
+{
+   "age": 60, 
+   "sex": "female", 
+   "bmi": 40.75, 
+   "children": 0, 
+   "smoker": "yes", 
+   "region": "southeast"
+}
+
+### 100% novo - Pouca idade, feminino com baixo BMI e fumante
+###  ??? -> 15960.378102136285 (Masc = 15846.017675903875  deu maior)
+POST http://localhost:5000/calculaseguro HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+
+{
+   "age": 16, 
+   "sex": "female", 
+   "bmi": 15.00, 
+   "children": 0, 
+   "smoker": "yes", 
+   "region": "southeast"
+}
+
+### 100% novo - Igual ao anterior, porém não fumante
+###  ??? -> 2573.5001815449477 (Masc = 2175.065061234213 deu maior)
+### Redução ainda maior do valor conforme esperado
+POST http://localhost:5000/calculaseguro HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+
+{
+   "age": 16, 
+   "sex": "female", 
+   "bmi": 15.00, 
+   "children": 0, 
+   "smoker": "no", 
+   "region": "southeast"
+}
+
+
